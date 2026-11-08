@@ -118,7 +118,6 @@ async def enter_phone(message: Message, state: FSMContext):
         f"Всё верно?"
     )
     
-    from aiogram.types
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="✅ Подтвердить", callback_data="banquet:confirm")],
         [InlineKeyboardButton(text="❌ Отмена", callback_data="banquet:cancel")]

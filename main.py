@@ -6,7 +6,7 @@ from aiogram.types import CallbackQuery
 from aiogram.fsm.context import FSMContext  
 from config import BOT_TOKEN, LOG_LEVEL
 from database import init_db
-from handlers import start, menu, banquet, booking
+from handlers import start, menu, banquet, booking, delivery
 
 # Настройка логирования
 logging.basicConfig(level=LOG_LEVEL)
@@ -26,6 +26,7 @@ async def main():
     dp.include_router(menu.router)
     dp.include_router(banquet.router)
     dp.include_router(booking.router)
+    dp.include_router(delivery.router)
     
     # Обработчик выбора филиала
     @dp.callback_query(lambda c: c.data.startswith("filial:"))
@@ -52,9 +53,6 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    from aiogram.types
-    from aiogram.fsm.context
-    
     try:
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
