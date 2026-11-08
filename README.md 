@@ -1,0 +1,29 @@
+# 🍺 Пиворама-Бот
+
+Telegram-бот для сети ресторанов "Пиворама" — автоматизация бронирования банкетов и приема заказов.
+
+## 🚀 Возможности
+
+- 📍 Выбор из 4 филиалов в Санкт-Петербурге
+- 🍽 Просмотр меню и оформление заказов
+- 🎉 Бронирование банкетных залов
+- 🪑 Бронирование столиков
+- 🚗 Заказ доставки (Колпино)
+- 📊 Экспорт данных в Google Sheets
+
+## 🛠 Технологии
+
+- Python 3.11+
+- aiogram 3.2.0
+- SQLite (aiosqlite)
+- Google Sheets API
+
+## 📦 Установка
+
+```bash
+git clone https://github.com/VikaZayts/pivorama_bot.git
+cd pivorama_bot
+pip install -r requirements.txt
+cp .env.example .env
+# Отредактируйте .env и добавьте свои токены
+python main.py
