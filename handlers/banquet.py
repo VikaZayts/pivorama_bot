@@ -7,6 +7,7 @@ from keyboards.filial import main_menu_keyboard
 from data.filials import get_filial_info
 from database import save_booking
 from utils.google_sheets import export_booking_to_sheet
+from aiogram.types import CallbackQuery, Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 router = Router()
 
@@ -117,7 +118,7 @@ async def enter_phone(message: Message, state: FSMContext):
         f"Всё верно?"
     )
     
-    from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+    from aiogram.types
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="✅ Подтвердить", callback_data="banquet:confirm")],
         [InlineKeyboardButton(text="❌ Отмена", callback_data="banquet:cancel")]
@@ -173,10 +174,11 @@ async def confirm_banquet(callback: CallbackQuery, state: FSMContext):
 @router.callback_query(F.data == "cancel_banquet")
 async def cancel_banquet(callback: CallbackQuery, state: FSMContext):
     """Отмена бронирования"""
-    await state.clear()
-    data = await state.get_data()
+    data = await state.get_data() 
     filial_id = data.get("filial_id")
-    filial_info = get_filial_info(filial_id)
+    await state.clear() 
+    
+    filial_info = get_filial_info(filial_id) if filial_id else {}
     
     await callback.message.edit_text(
         "❌ Бронирование отменено",

@@ -2,6 +2,8 @@ import asyncio
 import logging
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.types import CallbackQuery  
+from aiogram.fsm.context import FSMContext  
 from config import BOT_TOKEN, LOG_LEVEL
 from database import init_db
 from handlers import start, menu, banquet, booking
@@ -50,8 +52,8 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    from aiogram.types import CallbackQuery
-    from aiogram.fsm.context import FSMContext
+    from aiogram.types
+    from aiogram.fsm.context
     
     try:
         asyncio.run(main())
